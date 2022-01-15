@@ -1,13 +1,13 @@
 let counter = 0;
 
 let pegs = [];
-let diskArray = []; // this stores the disks
+let diskArray = []; // stores the disks
 const game = document.getElementById('game');
 
 function plotAll(pegMap) {
   pegArray.map((peg, pegindex) => {
     // loop over all pegs
-    let disks = pegMap[peg]; // the array of disks on pegMap.A say
+    let disks = pegMap[peg]; // array of disks on pegMap.A say
     if (disks.length > 0) {
       disks.map((disk, index) => {
         pickDisk = diskArray.filter((item) => {
@@ -39,7 +39,7 @@ const sleep = (milliseconds) => {
 };
 
 function diskFactory(id, indexOnPeg, pegNumber, type) {
-  // this determines start positions
+  // determines start positions
   let newdiv = document.createElement('div');
   positionDisk(newdiv, id, indexOnPeg, pegNumber);
   newdiv.setAttribute('class', type); // these are the pegs
@@ -69,7 +69,7 @@ function pegFactory(id, indexOnPeg, pegNumber, type) {
 function initializeDisks(pegMap) {
   let disks = pegMap[pegArray[0]]; // all disks start on peg 0
   diskArray = disks.map((diskid, indexOnPeg) => {
-    // this is a kind of shadow DOM
+    // a kind of shadow DOM
     return diskFactory(diskid, indexOnPeg, 0, 'disk');
   });
   pegArray.map((item, pegId) => {
